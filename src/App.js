@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React from "react";
+import React, {useState} from "react";
 import './App.scss';
 import HeaderTop from "./components/mainHeader";
 import SideMenu from "./components/sideMenu";
@@ -66,6 +66,8 @@ function RedirectToHome({ authenticated, children, ...rest }) {
 
 function App () {
 
+  const [items, setItems] = useState([]);
+
   if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
   }
@@ -90,7 +92,7 @@ function App () {
         <div className="mainView">
           <Switch>
                 <Protected authenticated={isAuthenticated } exact path="/">
-                  <MainView />
+                  <MainView items={items} onDelete={setItems} />
                 </Protected>
                 <Protected authenticated={isAuthenticated } path="/tasks">
                   <CompletedTasksView />
@@ -99,7 +101,7 @@ function App () {
                   <CategoriesView />
                 </Protected>
                 <Protected authenticated={isAuthenticated } path="/add">
-                  <AddTodo />
+                  <AddTodo onSubmit={setItems} />
                 </Protected>
           </Switch>
         </div>

@@ -4,6 +4,13 @@ import styled from "styled-components";
 import Tile from "../components/tile";
 import { Link } from "react-router-dom";
 import Form from "../components/logInForm";
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['BenchNine:300,400,700', 'sans-serif']
+  }
+});
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -22,12 +29,15 @@ const StyledTile = styled(Tile)`
   @media (min-width: 600px) {
     width: 30%;
   }
+  border-radius: 15px;
+  box-shadow 5px 5px 200px 	rgba(0, 0, 0, 0.7);
 `;
 
 const StyledHeading = styled.h2`
   text-align: center;
+  font-family: 'BenchNine', sans-serif;
   margin-top: 2%;
-  color: purple;
+  color: white;
 `;
 const StyledLink = styled(Link)`
   text-align: center;
@@ -56,14 +66,14 @@ function Login(props) {
   return (
     <StyledWrapper>
       <StyledTile>
-        <StyledHeading>Login With </StyledHeading>
+        <StyledHeading>Hello!</StyledHeading>
+        <StyledHeading>Please, Login With </StyledHeading>
         <Form
           onSocialLogin={handleSocialLogin}
           serverError={error}
           onSubmit={handleSubmit}
           buttonText="LOGIN"
         />
-        <StyledLink to="/join"> Not a member - Join </StyledLink>
       </StyledTile>
     </StyledWrapper>
   );

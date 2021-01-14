@@ -2,12 +2,12 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import TodoItem from "./todoItem";
 
-function  AddTodo() {
+function  AddTodo(props) {
     const [input, setInput] = useState("");
-    const [items, setItems] = useState([]);
+    //const [items, setItems] = useState([]);
 
     function addItem(event) {
-        setItems(prevData => {
+        props.onSubmit(prevData => {
             return [...prevData, input];
         });
         
@@ -16,15 +16,17 @@ function  AddTodo() {
 
     return (
         <React.Fragment>
-            <div className="heading">
-                <h1 className="title">To-Do List</h1>
+            <div className="input-row">
+                <div className="label">
+                    <p>Enter the name of your task:</p>
+                </div>
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(event) => { setInput(event.target.value) }}
+                />
             </div>
-            <input
-                type="text"
-                value={input}
-                onChange={(event) => { setInput(event.target.value) }}
-            />
-            <button onClick={addItem}>Add</button>
+            <button className="addButton" onClick={addItem}>Add</button>
         </React.Fragment>
     )
 }

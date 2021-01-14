@@ -5,16 +5,25 @@ import ErrorLabel from "../components/errorLabel"
 import styled from "styled-components";
 import { SocialIcon } from "react-social-icons";
 import { useForm } from 'react-hook-form';
-
 import * as yup from 'yup';
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['BenchNine:300,400,700', 'sans-serif']
+  }
+});
+
 const StyledHeading = styled.h2`
     text-align: center;
     margin-top: 2%;
-    color: purple;
+    color: white;
+    font-family: 'BenchNine', sans-serif;
   `;
 
   const StyledSocialIconArea = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-around;
     a: {
       cursor: pointer;
@@ -55,45 +64,9 @@ function LoginForm(props) {
     <React.Fragment>
       <StyledSocialIconArea>
         <SocialIcon onClick={() => handleSocialClick("facebook")} network="facebook" />
+        <StyledHeading> OR </StyledHeading>
         <SocialIcon onClick={() => handleSocialClick("google")} network="google" />
-       { /*
-
-       I am currently awaiting for my twitter developer AIP access to be approved
-       
-       <SocialIcon onClick={() => handleSocialClick("twitter")} network="twitter" />
-       
-       */}
       </StyledSocialIconArea>
-      <StyledHeading> OR </StyledHeading>
-  
-
-       {!displayEmail &&  (<Button onClick={handleClick}   text="Email" />)   } 
-       
-
-       {displayEmail && (
-         
-          <form onSubmit={handleSubmit(handleInnerSubmit)}>
-          <p>
-            <label> Email   </label>
-          </p>
-          <p>
-            <input type="text" name="email" style={errorBorder(errors.email)} ref={register}/>
-            <ErrorLabel> {errors.email && errors.email.message} </ErrorLabel>
-         
-          </p>
-          
-            <label> Password </label>
-      
-          <p>
-            <input type="password" name="password" ref={register} style={errorBorder(errors.password)} />
-            <ErrorLabel> {errors.password && errors.password.message} </ErrorLabel>
-          </p>
-         
-          <Button  text={buttonText} />  
-          <ErrorLabel>{serverError}  </ErrorLabel>
-         
-        </form>
-       )}
       
     </React.Fragment>
   );

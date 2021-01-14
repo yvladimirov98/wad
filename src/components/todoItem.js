@@ -6,7 +6,10 @@ function TodoItem({ id, item, onCheck }) {
         <li
             onClick={() => {onCheck(id)}}
         >
-            {item}  
+            <div className="todoItem">
+                {item}
+                <p className="helperLabel">Click me to close me!</p>
+            </div>
         </li>
         </>
     )

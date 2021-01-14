@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import TodoItem from "./todoItem";
 
-function MainView() {
-    const [items, setItems] = useState([]);
+function MainView(props) {
 
     function removeItem(id) {
-        setItems(prevData => {
+        props.onDelete(prevData => {
             return prevData.filter((item, index) => {
                 return index !== id;
             })
@@ -13,21 +12,24 @@ function MainView() {
     }
 
     return (
-      <div className="todolist">
+        <div className="todolist">
+            <div className="headingInfo">
+                <h3>Your active tasks will appear below</h3>
+            </div>
+            <div className="items">
+                <ul>
+                    {props.items.map((item, index) => (
+                        <TodoItem
+                            key={index}
+                            id={index}
+                            item={item}
+                            onCheck={removeItem}
+                        />
+                    ))}
+                </ul>
+            </div>
 
-          <div className="items">
-            <ul>
-                {items.map((item, index) => (
-                    <TodoItem
-                        key={index}
-                        id={index}
-                        item={item}
-                        onCheck={removeItem}
-                    />
-                ))}
-            </ul>
-          </div>
-      </div>
+        </div>
     );
 }
 

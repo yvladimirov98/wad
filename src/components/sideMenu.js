@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components"; 
 import avatarPlaceholder from "../assets/avatar_placeholder.png";
 import { Link, useLocation } from "react-router-dom";
+import wrench from "../assets/wrench.png"
+import homeWhite from "../assets/homeWhite.png"
 
 const SideMenu = (props) => {
     const location = useLocation();
@@ -21,15 +23,11 @@ const SideMenu = (props) => {
             <div className="sideUL">
                 <ul>
                     <li>
+                        <img src={homeWhite} alt="home" />
                         <Link to="/"> Home </Link>
                     </li>
                     <li>
-                        <Link to="/tasks"> Your Tasks </Link>
-                    </li>
-                    <li>
-                        <Link to="/categories"> Categories </Link>
-                    </li>
-                    <li>
+                        <img src={wrench} alt="addTask" />
                         <Link to="/add"> Add a Task </Link>
                     </li>
                 </ul>
