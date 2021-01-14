@@ -1,6 +1,13 @@
 body{
   margin: 0;
 }
+
+.loginMain{
+  background-color: grey;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .App {
   display: flex;
   /* text-align: center; */
@@ -24,6 +31,10 @@ body{
   display: flex;
   flex-direction: column;
   background-color: #585858;
+
+  .mainView{
+    padding: 15px;
+  }
 }
 
 .sideMenu{
@@ -42,11 +53,13 @@ body{
       list-style: none;
       margin-bottom: 25px;
       padding-left: 20px;
+      font-size: 13px;
 
       a{
+        text-decoration: none;
+
         &:visited{
-          color: white;
-          text-decoration: none !important;
+          color: white;          
         }
 
         &:hover{
@@ -68,11 +81,12 @@ body{
   height: 90px;
   border-radius: 0 0 1rem 1rem;
   background-image: url("./assets/sideMenu.jpg");
+  background-position: bottom;
   color: white;
 
   img{
-    max-width: 45px;
-    max-height: 45px;
+    max-width: 35px;
+    max-height: 35px;
     border-radius: 100%;
     margin-right: 20px;
   }
@@ -80,6 +94,6 @@ body{
   h6{
     padding: 0;
     margin: 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 }
