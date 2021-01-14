@@ -1,11 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
+import TodoItem from "./todoItem";
 
-const  AddTodo = (props) => {
+function  AddTodo() {
+    const [input, setInput] = useState("");
+    const [items, setItems] = useState([]);
+
+    function addItem(event) {
+        setItems(prevData => {
+            return [...prevData, input];
+        });
+        
+        setInput("");
+    }
+
     return (
-        <div>
-            <h1> todo </h1>
-        </div>
+        <React.Fragment>
+            <div className="heading">
+                <h1 className="title">To-Do List</h1>
+            </div>
+            <input
+                type="text"
+                value={input}
+                onChange={(event) => { setInput(event.target.value) }}
+            />
+            <button onClick={addItem}>Add</button>
+        </React.Fragment>
     )
 }
 

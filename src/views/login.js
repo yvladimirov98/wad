@@ -44,7 +44,7 @@ function Login(props) {
       const user = await signInEmailUser(email, password);
       console.log(user);
     } catch (error) {
-      debugger;
+      //debugger;
       setError(error.message);
     }
   };
@@ -52,7 +52,7 @@ function Login(props) {
   const handleSocialLogin = provider => {
     signInWithProvider(provider);
   };
-  console.log("login", handleSocialLogin)
+  
   return (
     <StyledWrapper>
       <StyledTile>
