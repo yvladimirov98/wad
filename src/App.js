@@ -4,12 +4,7 @@ import './App.scss';
 import HeaderTop from "./components/mainHeader";
 import SideMenu from "./components/sideMenu";
 import MainView from "./components/mainView";
-import {
-  Switch,
-  Route,
-  useLocation,
-  Redirect
-} from "react-router-dom";
+import { Switch,  Route,  useLocation,  Redirect} from "react-router-dom";
 import CompletedTasksView from "./components/completedTasksView";
 import CategoriesView from "./components/categoriesView";
 import AddTodo from "./components/addTodo";
