@@ -14,7 +14,7 @@ function MainView(props) {
     return (
         <div className="todolist">
             <div className="headingInfo">
-                <h3>Your active tasks will appear below</h3>
+                <h3>Your active tasks will appear below:</h3>
             </div>
             <div className="items">
                 <ul>
